@@ -5,9 +5,9 @@ import time
 from pytz import timezone
 
 # Configure Modbus parameters
-PORT_NAME = "/dev/ttyAMA3"
-SLAVE_ADDRESS = 1
-BAUDRATE = 115200
+PORT_NAME = "/dev/ttyAMA1" # Replace with your serial port
+SLAVE_ADDRESS = 1 # Replace with your device's slave address
+BAUDRATE = 9800 # Replace with your device's baud rate
 IST = timezone('Asia/Kolkata')
 
 # Initialize Modbus instrument
@@ -22,9 +22,9 @@ instrument.clear_buffers_before_each_transaction = True
 
 # Define Modbus register mappings
 REGISTERS = {
-    "Voltage (V)": {"address": 0x0131, "decimals": 1, "function_code": 3, "registers": 1},
-    "Current (A)": {"address": 0x0139, "decimals": 3, "function_code": 3, "registers": 2, "bcd": True},
-    "Active Power (W)": {"address": 0x0141, "decimals": 1, "function_code": 3, "registers": 2, "bcd": True},
+    "Voltage (V)": {"address": 0, "decimals": 0, "function_code": 0, "registers": 0},
+    "Current (A)": {"address": 0, "decimals": 0, "function_code": 0, "registers": 0, "bcd": True},
+    "Active Power (W)": {"address": 0, "decimals": 0, "function_code": 0, "registers": 0, "bcd": True},
 }
 
 # Connect to SQLite database
