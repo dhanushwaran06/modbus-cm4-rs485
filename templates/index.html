@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modbus Data</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 10px;
+            text-align: center;
+        }
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <h2>Live Modbus Data</h2>
+    {% if data %}
+    <table>
+        <tr>
+            <th>Timestamp (IST)</th>
+            <th>Voltage (V)</th>
+            <th>Current (A)</th>
+            <th>Active Power (W)</th>
+        </tr>
+        <tr>
+            <td>{{ data.timestamp }}</td>
+            <td>{{ data.voltage }}</td>
+            <td>{{ data.current }}</td>
+            <td>{{ data.active_power }}</td>
+        </tr>
+    </table>
+    {% else %}
+    <p>No data available.</p>
+    {% endif %}
+</body>
+</html>
